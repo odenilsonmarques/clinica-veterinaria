@@ -35,6 +35,7 @@ class StoreUpdateTutor extends FormRequest
             'nome.required' => 'O campo nome é obrigatório.',
             'nome.max' => 'O campo nome não pode exceder 255 caracteres.',
             'telefone.required' => 'O campo telefone é obrigatório.',
+            'telefone.unique' => 'Este telefone já está em uso.',
             'email.required' => 'O campo email é obrigatório.',
             'email.email' => 'O campo email deve ser um endereço de email válido.',
             'email.max' => 'O campo email não pode exceder 255 caracteres.',

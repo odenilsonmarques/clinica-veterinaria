@@ -14,7 +14,8 @@ class TutorController extends Controller
      */
     public function index()
     {
-        return view('tutors.index');
+        $tutors = Tutor::all();
+        return view('tutors.index', compact('tutors'));
     }
 
     /**
@@ -44,7 +45,7 @@ class TutorController extends Controller
         // Here you would typically save the data to the database
         // Tutor::create($validatedData);
 
-        return redirect()->route('tutors.index')->with('success', 'Tutor created successfully.');
+        return redirect()->route('tutors.index')->with('success', 'Tutor criado com sucesso.');
     }
 
     /**

@@ -1,0 +1,23 @@
+.card-header{
+    background-color: #b0a7e8;
+}
+
+.btn-custom-add {
+    background-color: #8F7FEE;
+    color: white;
+}
+
+label.required::after {
+    content: " *";
+    color: red;
+}
+
+.thead-custom{
+    background-color: #b0a7e8;
+    color: #fff;
+}
+
+.btn-search-custom {
+    background-color: #8F7FEE;
+    color: white;
+}

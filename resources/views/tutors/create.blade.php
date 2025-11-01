@@ -1,31 +1,87 @@
-@if($errors->any())
-    <div>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+@extends('layouts.template')
+@section('title', 'Cadastro de Tutor')
+@section('content')
+    <div class="container">
+        <div class="row">
+            <form action="{{ route('tutors.store') }}" method="POST">
+                @csrf
+                <div class="card mt-3">
+                    <div class="card-header d-flex align-items-center text-white  rounded-top">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
+                            class="bi bi-person-circle me-2" viewBox="0 0 16 16">
+                            <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
+                            <path fill-rule="evenodd"
+                                d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1" />
+                        </svg>
+                        Identificação do Tutor
+                    </div>
+                    <div class="card-body">
+                        <div class="row g-3">
+                            <div class="col-md-12">
+                                <div class="mb-4">
+                                    <label for="nome" class="text-dark required">Nome</label>
+                                    <div class="input-group">
+                                        <input type="text" id="nome" name="nome"
+                                            class="form-control @error('nome') is-invalid @enderror"
+                                            value="{{ old('nome') }}" required>
+                                    </div>
+                                    @error('nome')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
 
-<form action="{{ route('tutors.store') }}" method="POST">
-    @csrf
-    <div>
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" value="{{ old('nome') }}" required>
-    </div>
-    <div>
-        <label for="telefone">Telefone:</label>
-        <input type="text" id="telefone" name="telefone" value="{{ old('telefone') }}" required>
-    </div>
-    <div>
-        <label for="email">E-mail:</label>
-        <input type="email" id="email" name="email" value="{{ old('email') }}" required>
-    </div>
-    <div>
-        <label for="endereco">Endereço:</label>
-        <input type="text" id="endereco" name="endereco" value="{{ old('endereco') }}" required>
+                        <div class="row g-3">
+                            <div class="col-md-4">
+                                <div class="mb-4">
+                                    <label for="telefone" class="text-dark required">Telefone</label>
+                                    <div class="input-group">
+                                        <input type="text" id="telefone" name="telefone"
+                                            class="form-control @error('telefone') is-invalid @enderror"
+                                            value="{{ old('telefone') }}" required>
+                                    </div>
+                                    @error('telefone')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-4">
+                                    <label for="email" class="text-dark required">E-mail</label>
+                                    <div class="input-group">
+                                        <input type="email" id="email" name="email"
+                                            class="form-control @error('email') is-invalid @enderror"
+                                            value="{{ old('email') }}" required>
+                                    </div>
+                                    @error('email')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+
+                            <div class="col-md-4">
+                                <div class="mb-4">
+                                    <label for="endereco" class="text-dark">Endereço</label>
+                                    <div class="input-group">
+                                        <input type="text" id="endereco" name="endereco"
+                                            class="form-control @error('endereco') is-invalid @enderror"
+                                            value="{{ old('endereco') }}">
+                                    </div>
+                                    @error('endereco')
+                                        <div class="text-danger">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-custom-add mt-3">Cadastrar</button>
+                        <a href="{{ route('tutors.index') }}" class="btn btn-secondary mt-3">Cancelar</a>
+                    </div>
+                </div>
+            </form>
+        </div>
     </div>
 
-    <button type="submit">Cadastrar Tutor</button>
-</form>
+@endsection
