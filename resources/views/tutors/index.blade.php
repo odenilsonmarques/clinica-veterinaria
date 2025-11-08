@@ -24,7 +24,7 @@
         <div class="row mt-5">
             @if ($tutors->isEmpty())
                 <div class="alert alert-info d-flex flex-column align-items-center py-4 mt-3">
-                    <p class="mb-3">Tutores não encontrados.</p>
+                    <p class="mb-3">Tutor não encontrado.</p>
                     <div class="d-flex gap-2">
                         <a href="{{ route('tutors.index') }}" class="btn btn-secondary">
                             Voltar para lista de tutores
@@ -109,5 +109,9 @@
                     @endforeach
                 </tbody>
             </table>
+            {{-- paginação --}}
+            <div class="d-flex justify-content-end pagination pagination-sm">
+                {{ $tutors->links('pagination::bootstrap-4') }}
+            </div>
         </div>
     @endsection

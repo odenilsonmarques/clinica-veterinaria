@@ -24,4 +24,15 @@ class Tutor extends Model
     {
         $this->attributes['telefone'] = preg_replace('/\D/', '', $value);
     }
+
+
+    // Scope para filtro de busca de tutores pelo nome
+    // O primeiro parâmetro é a query builder interna que o Eloquent está usando.
+    // O segundo parâmetro é o valor que estamos passando para o escopo ao chamá-lo (neste caso, o termo de busca $search).
+    public function scopeFilterTutor($query, $search)
+    {
+        if ($search) {
+            $query->where('nome', 'LIKE', "%{$search}%");
+        }
+    }   
 }

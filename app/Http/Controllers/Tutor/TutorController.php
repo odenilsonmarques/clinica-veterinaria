@@ -12,11 +12,19 @@ class TutorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tutors = Tutor::all();
-        return view('tutors.index', compact('tutors'));
+        // Captura o termo de buscado no input de busca
+        $search = $request->input('search');
+        // Após capturar o termo, aplica o scope(definido na model Tutor). Lembrando que o nome do scope na model tem um prefixo "scope" aqui passamos o nome sem o prefixo e mantém paginação
+        $tutors = Tutor::orderBy('nome')
+            ->FilterTutor($search)
+            ->paginate(5)
+            ->appends(['search' => $search]); // mantém o termo na paginação
+
+        return view('tutors.index', compact('tutors', 'search'));
     }
+
 
     /**
      * Show the form for creating a new resource.
