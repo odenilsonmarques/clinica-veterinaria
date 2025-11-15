@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Pet;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreUpdatePet;
 use Illuminate\Http\Request;
 use App\Models\Tutor;
 use App\Models\Pet;
@@ -12,9 +13,17 @@ class PetController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index( Request $request)
     {
-        return view('pets.index');
+        // Captura o termo de digitado no input de busca
+        $search = $request->input('search');
+        // Após capturar o termo, aplica o scope(definido na model Pet). Lembrando que o nome do scope na model tem um prefixo "scope" aqui passamos o nome sem o prefixo e mantém paginação
+        $pets = Pet::orderBy('nome')
+            ->FilterPet($search)
+            ->paginate(5)
+            ->appends(['search' => $search]); // mantém o termo na paginação
+
+        return view('pets.index', compact('pets'));
     }
 
     /**
@@ -29,23 +38,14 @@ class PetController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StoreUpdatePet $request)
     {
         // Validate and store the pet data
-        $validatedData = $request->validate([
-            'nome' => 'required|string|max:255',
-            'especie' => 'required|string|max:100',
-            'raca' => 'nullable|string|max:100',
-            'idade' => 'nullable|integer|min:0',
-            'sexo' => 'nullable|string|max:10',
-            'data_nascimento' => 'nullable|date',
-            'tutor_id' => 'required|exists:tutors,id',
-        ]);
+        $validatedData = $request->validated();
         // dd($validatedData);
-        // Here you would typically save the data to the database
         Pet::create($validatedData);
 
-        return redirect()->route('pets.index')->with('success', 'Pet created successfully.');
+        return redirect()->route('pets.index')->with('success', 'Pet criado com sucesso.');
     }
 
     /**
