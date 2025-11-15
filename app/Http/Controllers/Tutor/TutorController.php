@@ -14,7 +14,7 @@ class TutorController extends Controller
      */
     public function index(Request $request)
     {
-        // Captura o termo de buscado no input de busca
+        // Captura o termo de digitado no input de busca
         $search = $request->input('search');
         // Após capturar o termo, aplica o scope(definido na model Tutor). Lembrando que o nome do scope na model tem um prefixo "scope" aqui passamos o nome sem o prefixo e mantém paginação
         $tutors = Tutor::orderBy('nome')
