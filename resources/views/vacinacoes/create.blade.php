@@ -1,3 +1,4 @@
+
 <form action="{{ route('vacinacoes.store') }}" method="POST">
     @csrf
     <div>
