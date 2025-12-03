@@ -26,7 +26,7 @@
                 <div class="alert alert-info d-flex flex-column align-items-center py-4 mt-3">
                     <p class="mb-3">Veterinário não encontrado.</p>
                     <div class="d-flex gap-2">
-                        <a href="{{ route('tutors.index') }}" class="btn btn-secondary">
+                        <a href="{{ route('veterinarios.index') }}" class="btn btn-secondary">
                             Voltar para lista de veterinários
                         </a>
                     </div>
@@ -39,7 +39,7 @@
                     <form method="GET" action="" class="d-flex gap-2">
                         <div class="input-group">
                             <input type="text" name="search" class="form-control"
-                                placeholder="Buscar tutor por nome ou número" value="{{ request('search') }}">
+                                placeholder="Buscar por nome ou CRMV" value="{{ request('search') }}">
                             <button type="submit"
                                 class="btn btn-search-custom d-flex align-items-center justify-content-center px-3">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"

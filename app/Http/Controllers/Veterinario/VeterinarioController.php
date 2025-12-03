@@ -14,7 +14,13 @@ class VeterinarioController extends Controller
      */
     public function index()
     {
-        $veterinarios = Veterinario::orderBy('nome')->paginate(5);
+        // Captura o termo digitado no input de busca
+        $search = request()->input('search');
+        // Após capturar o termo, aplica o scope(definido na model Veterinario). Lembrando que o nome do scope na model tem um prefixo "scope" aqui passamos o nome sem o prefixo e mantém paginação
+        $veterinarios = Veterinario::orderBy('nome')
+            ->filterVeterinario($search)
+            ->paginate(5)
+            ->appends(['search' => $search]);
         return view('veterinarios.index', compact('veterinarios'));
     }
 
