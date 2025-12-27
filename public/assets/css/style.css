@@ -1,4 +1,9 @@
-.card-header{
+body {
+    padding-top: 80px;
+    /* ajuste para a altura real do header */
+}
+
+.card-header {
     background-color: #b0a7e8;
 }
 
@@ -12,7 +17,7 @@ label.required::after {
     color: red;
 }
 
-.thead-custom{
+.thead-custom {
     background-color: #b0a7e8;
     color: #fff;
 }

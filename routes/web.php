@@ -34,16 +34,16 @@ Route::get('/pets/create', [PetController::class, 'create'])->name('pets.create'
 Route::post('/pets', [PetController::class, 'store'])->name('pets.store');
 
 
-//Rotas para vacinas
-Route::get('/vacinas', [VacinaController::class, 'index'])->name('vacinas.index');
-Route::get('/vacinas/create', [VacinaController::class, 'create'])->name('vacinas.create');
-Route::post('/vacinas', [VacinaController::class, 'store'])->name('vacinas.store');
-
-
 // Rotas para veterinários
 Route::get('/veterinarios', [VeterinarioController::class, 'index'])->name('veterinarios.index');
 Route::get('/veterinarios/create', [VeterinarioController::class, 'create'])->name('veterinarios.create');
 Route::post('/veterinarios', [VeterinarioController::class, 'store'])->name('veterinarios.store');
+
+
+//Rotas para vacinas
+Route::get('/vacinas', [VacinaController::class, 'index'])->name('vacinas.index');
+Route::get('/vacinas/create', [VacinaController::class, 'create'])->name('vacinas.create');
+Route::post('/vacinas', [VacinaController::class, 'store'])->name('vacinas.store');
 
 
 // Rotas para vacinações
