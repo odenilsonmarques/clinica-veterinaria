@@ -32,4 +32,19 @@ class Vacinacao extends Model
     {
         return $this->belongsTo(Veterinario::class);
     }
+
+
+    public function scopeFilterVacinacao($query, $search)
+    {
+        if ($search) {
+            $query->whereHas('pet', function ($q) use ($search) {
+                $q->where('nome', 'LIKE', "%{$search}%");
+            })->orWhereHas('vacina', function ($q) use ($search) {
+                $q->where('nome', 'LIKE', "%{$search}%");
+            })->orWhereHas('veterinario', function ($q) use ($search) {
+                $q->where('nome', 'LIKE', "%{$search}%")
+                  ->orWhere('crmv', 'LIKE', "%{$search}%");
+            });
+        }
+    }
 }
