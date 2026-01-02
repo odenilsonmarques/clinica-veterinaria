@@ -123,7 +123,7 @@
 
                                                 <td class="">
                                                     <!-- Ver carteira -->
-                                                    <a href="#" class="btn btn-sm">
+                                                    <a href="{{ route('carteira.show', $pet->id) }}" class="btn btn-sm">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20"
                                                             height="20" fill="currentColor" class="bi bi-card-checklist"
                                                             viewBox="0 0 16 16">
