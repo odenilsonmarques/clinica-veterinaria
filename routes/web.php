@@ -56,3 +56,4 @@ Route::post('/vacinacoes', [VacinacaoController::class, 'store'])->name('vacinac
 
 // Rota para o dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
