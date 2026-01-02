@@ -36,8 +36,21 @@ class Pet extends Model
     // O segundo parâmetro é o valor que estamos passando para o escopo ao chamá-lo (neste caso, o termo de busca $search).
     public function scopeFilterPet($query, $search)
     {
-        if ($search) {
+        if (!empty($search)) {
             $query->where('nome', 'LIKE', "%{$search}%");
+        }
+    }
+
+    // scope para ser usado no dashboard
+    public function scopeFilterPetWithTutor($query, $search)
+    {
+        if (!empty($search)) {
+            $query->where(function ($q) use ($search) {
+                $q->where('nome', 'LIKE', "%{$search}%")
+                    ->orWhereHas('tutor', function ($q) use ($search) {
+                        $q->where('nome', 'LIKE', "%{$search}%");
+                    });
+            });
         }
     }
 }

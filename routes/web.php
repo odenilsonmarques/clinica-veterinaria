@@ -6,6 +6,8 @@ use App\Http\Controllers\Pet\PetController;
 use App\Http\Controllers\Vacina\VacinaController;
 use App\Http\Controllers\Veterinario\VeterinarioController;
 use App\Http\Controllers\Vacinacao\VacinacaoController;
+use App\Http\Controllers\Dashboard\DashboardController;
+
 
 
 /*
@@ -50,3 +52,8 @@ Route::post('/vacinas', [VacinaController::class, 'store'])->name('vacinas.store
 Route::get('/vacinacoes', [VacinacaoController::class, 'index'])->name('vacinacoes.index');
 Route::get('/vacinacoes/create', [VacinacaoController::class, 'create'])->name('vacinacoes.create');
 Route::post('/vacinacoes', [VacinacaoController::class, 'store'])->name('vacinacoes.store');
+
+
+// Rota para o dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
+
