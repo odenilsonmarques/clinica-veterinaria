@@ -159,19 +159,44 @@
                                 <h6 class="fw-bold mb-3">Alertas</h6>
 
                                 <p class="mb-2">
-                                    <strong class="text-danger">Atrasados</strong><br>
-                                    Animais com vacinas vencidas
+                                    @if ($vacinasVencidas->count())
+                                        <div class="alert alert-danger">
+                                            <strong>Vacinas vencidas:</strong>
+                                            <ul class="mb-0">
+                                                @foreach ($vacinasVencidas as $v)
+                                                    <li>
+                                                        {{ $v->pet->nome }} —
+                                                        {{ $v->vacina->nome }} —
+                                                        vencida em
+                                                        {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+
                                 </p>
 
                                 <p class="mb-2">
-                                    <strong class="text-warning">Urgente</strong><br>
-                                    Próximas de vencer
+                                    @if ($vacinasProximas->count())
+                                        <div class="alert alert-warning">
+                                            <strong>Vacinas próximas do vencimento:</strong>
+                                            <ul class="mb-0">
+                                                @foreach ($vacinasProximas as $v)
+                                                    <li>
+                                                        {{ $v->pet->nome }} —
+                                                        {{ $v->vacina->nome }} —
+                                                        vence em
+                                                        {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    @endif
+
                                 </p>
 
-                                <p class="mb-0">
-                                    <strong class="text-primary">Aviso</strong><br>
-                                    Agendadas para o próximo mês
-                                </p>
+                                
                             </div>
                         </div>
                     </div>

@@ -29,39 +29,60 @@
 
                 <h5 class="mb-3">Histórico de Vacinação</h5>
 
-                <table class="table table-bordered table-striped">
+                <table class="table table-bordered">
                     <thead>
                         <tr>
                             <th>Vacina</th>
                             <th>Data aplicação</th>
                             <th>Próxima dose</th>
                             <th>Veterinário</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
 
                     <tbody>
-                        @forelse ($pet->vacinacoes as $vacinacao)
+                        @foreach ($pet->vacinacoes as $vacinacao)
                             <tr>
                                 <td>{{ $vacinacao->vacina->nome }}</td>
-                                <td>{{ \Carbon\Carbon::parse($vacinacao->data_aplicacao)->format('d/m/Y') }}</td>
+
+                                <td>
+                                    {{ \Carbon\Carbon::parse($vacinacao->data_aplicacao)->format('d/m/Y') }}
+                                </td>
+
                                 <td>
                                     {{ $vacinacao->proxima_dose ? \Carbon\Carbon::parse($vacinacao->proxima_dose)->format('d/m/Y') : '—' }}
                                 </td>
+
                                 <td>
                                     {{ $vacinacao->veterinario->nome ?? '—' }}
                                 </td>
-                            </tr>
-                        @empty
-                            <tr>
-                                <td colspan="4" class="text-center text-muted">
-                                    Nenhuma vacina registrada
+
+                                <!-- 👇 AQUI entra o switch -->
+                                <td>
+                                    @switch($vacinacao->status)
+                                        @case('vencida')
+                                            <span class="badge bg-danger">Vencida</span>
+                                        @break
+
+                                        @case('proxima')
+                                            <span class="badge bg-warning text-dark">Próxima</span>
+                                        @break
+
+                                        @case('em_dia')
+                                            <span class="badge bg-success">Em dia</span>
+                                        @break
+
+                                        @default
+                                            <span class="text-muted">—</span>
+                                    @endswitch
                                 </td>
                             </tr>
-                        @endforelse
+                        @endforeach
                     </tbody>
                 </table>
 
-                
+
+
 
 
 
