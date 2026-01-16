@@ -123,7 +123,7 @@
 
                                                 <td class="">
                                                     <!-- Ver carteira -->
-                                                    <a href="#" class="btn btn-sm">
+                                                    <a href="{{ route('carteira.show', $pet->id) }}" class="btn btn-sm">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20"
                                                             height="20" fill="currentColor" class="bi bi-card-checklist"
                                                             viewBox="0 0 16 16">
@@ -158,23 +158,104 @@
                             <div class="card-body">
                                 <h6 class="fw-bold mb-3">Alertas</h6>
 
-                                <p class="mb-2">
-                                    <strong class="text-danger">Atrasados</strong><br>
-                                    Animais com vacinas vencidas
-                                </p>
+                                <!-- Vacinas vencidas -->
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="text-danger fw-bold">
+                                        🔴 {{ $vacinasVencidasCount }} vacinas vencidas
+                                    </span>
+                                    <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
+                                        data-bs-target="#modalVencidas">
+                                        Ver
+                                    </button>
+                                </div>
 
-                                <p class="mb-2">
-                                    <strong class="text-warning">Urgente</strong><br>
-                                    Próximas de vencer
-                                </p>
+                                <!-- Vacinas próximas -->
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="text-warning fw-bold">
+                                        🟠 {{ $vacinasProximasCount }} vacinas próximas
+                                    </span>
+                                    <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
+                                        data-bs-target="#modalProximas">
+                                        Ver
+                                    </button>
+                                </div>
 
-                                <p class="mb-0">
-                                    <strong class="text-primary">Aviso</strong><br>
-                                    Agendadas para o próximo mês
-                                </p>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Modal para Vacinas Vencidas -->
+                    <div class="modal fade" id="modalVencidas" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-danger">Vacinas vencidas</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <ul class="list-group">
+                                        @foreach ($vacinasVencidas as $v)
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
+                                                        class="fw-bold text-decoration-none text-danger">
+                                                        {{ $v->pet->nome }}
+                                                    </a>
+                                                    —
+                                                    {{ $v->vacina->nome }}
+                                                    —
+                                                    vencida em
+                                                    {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}
+                                                </div>
+
+                                                <span class="badge bg-danger">Vencida</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Modal para Vacinas Próximas -->
+                    <div class="modal fade" id="modalProximas" tabindex="-1">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-warning">Vacinas próximas do vencimento</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+                                    <ul class="list-group">
+                                        @foreach ($vacinasProximas as $v)
+                                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
+                                                        class="fw-bold text-decoration-none text-warning">
+                                                        {{ $v->pet->nome }}
+                                                    </a>
+                                                    —
+                                                    {{ $v->vacina->nome }}
+                                                    —
+                                                    vence em {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}
+                                                </div>
+
+                                                <span class="badge bg-warning text-dark">Próxima</span>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
 
                 </div>
             </main>

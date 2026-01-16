@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Carteira\CarteiraController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Tutor\TutorController;
 use App\Http\Controllers\Pet\PetController;
@@ -57,3 +58,5 @@ Route::post('/vacinacoes', [VacinacaoController::class, 'store'])->name('vacinac
 // Rota para o dashboard
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
+//Rota para carteira de vacinação
+Route::get('/carteira/{pet}', [CarteiraController::class, 'show'])->name('carteira.show');
