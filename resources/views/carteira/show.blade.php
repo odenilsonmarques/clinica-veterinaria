@@ -6,6 +6,7 @@
         <div class="card mb-4">
             <div class="card-body">
                 <h1 class="fs-3 text-center">Carteira de vacina</h1>
+
                 <p class="mb-1 mt-3"><strong>Nome do pet:</strong> {{ $pet->nome }}</p>
 
                 <small class="text-muted fs-5">
@@ -21,6 +22,10 @@
                 <hr>
 
                 <p class="mb-1"><strong>Tutor:</strong> {{ $pet->tutor->nome }}</p>
+
+                <a href="{{ route('vacinas.create', $pet->id) }}" class="btn btn-success">
+                    Registrar nova vacina
+                </a>
             </div>
         </div>
 

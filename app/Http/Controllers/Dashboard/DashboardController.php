@@ -36,10 +36,18 @@ class DashboardController extends Controller
             ->VacinasProximasDoVencimento(30)
             ->get();
 
+
+
+        // Alertas (status vacinas)
+        $vacinasVencidasCount = Vacinacao::VacinasVencidas()->count();
+        $vacinasProximasCount = Vacinacao::VacinasProximasDoVencimento(30)->count();
+
         return view('dashboard.index', compact(
             'pets',
             'vacinasVencidas',
-            'vacinasProximas'
+            'vacinasProximas',
+            'vacinasVencidasCount',
+            'vacinasProximasCount'
         ));
     }
 
