@@ -84,51 +84,30 @@
 
             <!-- CONTEÚDO PRINCIPAL -->
             <main class="col-md-10 px-4 py-0">
-
-                <!-- TOPO -->
-                {{-- <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4 class="fw-bold">Visualização Animais</h4>
-                    <span class="text-muted">(nome veterinário)</span>
-                </div> --}}
-
+                
                 <!-- FILTROS -->
                 <div class="card mb-4 border-0">
                     <div class="card-body">
-                        <!-- FILTROS -->
-                        @if ($pets->isEmpty())
-                            <div class="alert alert-info d-flex flex-column align-items-center py-4 mt-3">
-                                <p class="mb-3">Pet não encontrado.</p>
-                                <div class="d-flex gap-2">
-                                    <a href="{{ route('dashboard.index') }}" class="btn btn-secondary">
-                                        Voltar para lista de pets
-                                    </a>
+                        <div class="d-flex justify-content-between align-items-center">
+                            {{-- Form de busca --}}
+                            <form method="GET" action="" class="d-flex gap-2">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control"
+                                        placeholder="Buscar por pet ou tutor" value="{{ request('search') }}">
+                                    <button type="submit"
+                                        class="btn btn-search-custom d-flex align-items-center justify-content-center px-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                        </svg>
+                                    </button>
                                 </div>
-                            </div>
-                        @else
-                            {{-- Linha do filtro + botão cadastrar --}}
-                            <div class="d-flex justify-content-between align-items-center">
-
-                                {{-- Form de busca --}}
-                                <form method="GET" action="" class="d-flex gap-2">
-                                    <div class="input-group">
-                                        <input type="text" name="search" class="form-control"
-                                            placeholder="Buscar por pet ou tutor" value="{{ request('search') }}">
-                                        <button type="submit"
-                                            class="btn btn-search-custom d-flex align-items-center justify-content-center px-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <a href="{{ route('dashboard.index') }}" class="btn btn-outline-secondary">
-                                        Limpar
-                                    </a>
-                                </form>
-                            </div>
-                        @endif
+                                <a href="{{ route('dashboard.index') }}" class="btn btn-outline-secondary">
+                                    Limpar
+                                </a>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -171,7 +150,7 @@
                                         @empty
                                             <tr>
                                                 <td colspan="4" class="text-center text-muted">
-                                                    Nenhum pet cadastrado
+                                                    Nenhum pet encontrado.
                                                 </td>
                                             </tr>
                                         @endforelse
@@ -193,8 +172,11 @@
 
                                 <!-- Vacinas vencidas -->
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="text-danger fw-bold">
-                                        🔴 {{ $vacinasVencidasCount }} vacinas vencidas
+                                    <span class="text-danger fw-bold d-flex align-items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                        </svg>
+                                        {{ $vacinasVencidasCount }} vacinas vencidas
                                     </span>
                                     <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalVencidas">
@@ -204,8 +186,11 @@
 
                                 <!-- Vacinas próximas -->
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <span class="text-warning fw-bold">
-                                        🟠 {{ $vacinasProximasCount }} vacinas próximas
+                                    <span class="text-warning fw-bold d-flex align-items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                                            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0l-5.708 9.7a1.13 1.13 0 0 0 .98 1.734h11.396a1.13 1.13 0 0 0 .98-1.734l-5.708-9.7zM8 5c.535 0 .954.462.894 1.031l-.708 5.957a.375.375 0 0 1-.75 0l-.708-5.956A.375.375 0 0 1 8 5zm.002 6a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1z"/>
+                                        </svg>
+                                        {{ $vacinasProximasCount }} vacinas próximas
                                     </span>
                                     <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
                                         data-bs-target="#modalProximas">
@@ -228,22 +213,22 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <ul class="list-group">
+                                    <ul class="list-group list-group-flush">
                                         @foreach ($vacinasVencidas as $v)
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <div>
-                                                    <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
-                                                        class="fw-bold text-decoration-none text-danger">
-                                                        {{ $v->pet->nome }}
-                                                    </a>
-                                                    —
-                                                    {{ $v->vacina->nome }}
-                                                    —
-                                                    vencida em
-                                                    {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}
+                                            <li class="list-group-item">
+                                                <div class="d-flex justify-content-between align-items-start gap-3">
+                                                    <div class="flex-grow-1">
+                                                        <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
+                                                            class="fw-bold text-decoration-none text-danger d-block mb-2">
+                                                            {{ $v->pet->nome }}
+                                                        </a>
+                                                        <div class="text-muted small">
+                                                            <span class="d-block mb-1">{{ $v->vacina->nome }}</span>
+                                                            <span class="d-block">Vencida em {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="badge bg-danger">Vencida</span>
                                                 </div>
-
-                                                <span class="badge bg-danger">Vencida</span>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -264,21 +249,22 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <ul class="list-group">
+                                    <ul class="list-group list-group-flush">
                                         @foreach ($vacinasProximas as $v)
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <div>
-                                                    <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
-                                                        class="fw-bold text-decoration-none text-warning">
-                                                        {{ $v->pet->nome }}
-                                                    </a>
-                                                    —
-                                                    {{ $v->vacina->nome }}
-                                                    —
-                                                    vence em {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}
+                                            <li class="list-group-item">
+                                                <div class="d-flex justify-content-between align-items-start gap-3">
+                                                    <div class="flex-grow-1">
+                                                        <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
+                                                            class="fw-bold text-decoration-none text-warning d-block mb-2">
+                                                            {{ $v->pet->nome }}
+                                                        </a>
+                                                        <div class="text-muted small">
+                                                            <span class="d-block mb-1">{{ $v->vacina->nome }}</span>
+                                                            <span class="d-block">Vence em {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="badge bg-warning text-dark">Próxima</span>
                                                 </div>
-
-                                                <span class="badge bg-warning text-dark">Próxima</span>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -287,27 +273,8 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </main>
-            <style>
-                .sidebar {
-                    border-right: 1px solid #eee;
-                }
-
-                .sidebar .nav-link {
-                    color: #555;
-                    border-radius: 8px;
-                }
-
-                .sidebar .nav-link.active,
-                .sidebar .nav-link:hover {
-                    background-color: #e9e3ff;
-                    color: #5a3fd9;
-                }
-            </style>
         </div>
     </div>
 @endsection

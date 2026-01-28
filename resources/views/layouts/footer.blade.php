@@ -1,8 +1,7 @@
-<footer class="mt-5" style="background-color: #94AF9F; color: white;">
+<footer class="mt-5">
     <div class="container">
-        <div class="row text-center p-3">
-            <p class="mt-4">&copy; {{ date('Y') }} G.E.M </p>
-            <small>Gestão de Estoque Municipal</small>
+        <div class="row text-center text-white p-3">
+            <p class="mt-4">&copy; {{ date('Y') }} HelpPet </p>
         </div>
     </div>
 </footer>
