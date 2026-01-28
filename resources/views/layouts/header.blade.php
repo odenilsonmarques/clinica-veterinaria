@@ -1,8 +1,8 @@
 <header>
-    <nav class="navbar fixed-top navbar-expand-sm navbar-dark p-2" style="background-color:#94AF9F">
-        <div class="container">
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark p-2" style="background-color: #b0a7e8;">
+        <div class="container-fluid">
             <a class="navbar-brand d-flex flex-column align-items-start" href="/">
-                <span class="fw-bold fs-4">G.E.M</span>
+                <span class="fw-bold fs-4">HelpPet</span>
             </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">

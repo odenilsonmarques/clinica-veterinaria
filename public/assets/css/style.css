@@ -26,3 +26,24 @@ label.required::after {
     background-color: #8F7FEE;
     color: white;
 }
+
+footer {
+    background-color: #b0a7e8;
+}
+
+
+
+.sidebar {
+    border-right: 1px solid #eee;
+}
+
+.sidebar .nav-link {
+    color: #555;
+    border-radius: 8px;
+}
+
+.sidebar .nav-link.active,
+.sidebar .nav-link:hover {
+    background-color: #e9e3ff;
+    color: #5a3fd9;
+}

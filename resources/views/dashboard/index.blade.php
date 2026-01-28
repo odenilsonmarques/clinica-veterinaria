@@ -5,97 +5,109 @@
         <div class="row">
 
             <!-- SIDEBAR (MENU LATERAL ESQUERDO) -->
-            <aside class="col-md-2 sidebar bg-light min-vh-100 py-4">
+            <aside class="col-md-2 sidebar bg-light min-vh-100 py-2">
                 <div class="text-center mb-4 fw-bold">
                     HelpPet
                 </div>
 
                 <ul class="nav flex-column gap-2">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">
-                            🏠 Home
+                        <a class="nav-link active d-flex align-items-center gap-2" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5" />
+                            </svg>
+                            Home
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('veterinarios.index') }}">
-                            👩‍⚕️ Veterinário
+                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route('veterinarios.index') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>
+                            Veterinário
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('tutors.index') }}">
-                            👤 Tutor
+                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route('tutors.index') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-person-fill" viewBox="0 0 16 16">
+                                <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6" />
+                            </svg>
+                            Tutor
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('pets.index') }}">
-                            🐶 Animais
+                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route('pets.index') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-gitlab" viewBox="0 0 16 16">
+                                <path
+                                    d="m15.734 6.1-.022-.058L13.534.358a.57.57 0 0 0-.563-.356.6.6 0 0 0-.328.122.6.6 0 0 0-.193.294l-1.47 4.499H5.025l-1.47-4.5A.572.572 0 0 0 2.47.358L.289 6.04l-.022.057A4.044 4.044 0 0 0 1.61 10.77l.007.006.02.014 3.318 2.485 1.64 1.242 1 .755a.67.67 0 0 0 .814 0l1-.755 1.64-1.242 3.338-2.5.009-.007a4.05 4.05 0 0 0 1.34-4.668Z" />
+                            </svg>
+                            Animais
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('vacinas.index') }}">
-                            💉 Vacinas
+                        <a class="nav-link d-flex align-items-center gap-2" href="{{ route('vacinas.index') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-eyedropper" viewBox="0 0 16 16">
+                                <path
+                                    d="M13.354.646a1.207 1.207 0 0 0-1.708 0L8.5 3.793l-.646-.647a.5.5 0 1 0-.708.708L8.293 5l-7.147 7.146A.5.5 0 0 0 1 12.5v1.793l-.854.853a.5.5 0 1 0 .708.707L1.707 15H3.5a.5.5 0 0 0 .354-.146L11 7.707l1.146 1.147a.5.5 0 0 0 .708-.708l-.647-.646 3.147-3.146a1.207 1.207 0 0 0 0-1.708zM2 12.707l7-7L10.293 7l-7 7H2z" />
+                            </svg>
+                            Vacinas
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('vacinacoes.index') }}">
-                            💉 Vacinações
+                        <a class="nav-link  d-flex align-items-center gap-2" href="{{ route('vacinacoes.index') }}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-eyedropper" viewBox="0 0 16 16">
+                                <path
+                                    d="M13.354.646a1.207 1.207 0 0 0-1.708 0L8.5 3.793l-.646-.647a.5.5 0 1 0-.708.708L8.293 5l-7.147 7.146A.5.5 0 0 0 1 12.5v1.793l-.854.853a.5.5 0 1 0 .708.707L1.707 15H3.5a.5.5 0 0 0 .354-.146L11 7.707l1.146 1.147a.5.5 0 0 0 .708-.708l-.647-.646 3.147-3.146a1.207 1.207 0 0 0 0-1.708zM2 12.707l7-7L10.293 7l-7 7H2z" />
+                            </svg>
+                            Vacinações
                         </a>
                     </li>
                     <li class="nav-item mt-4">
-                        <a class="nav-link text-danger" href="#">
-                            🚪 Sair
+                        <a class="nav-link  d-flex align-items-center gap-2 text-danger" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-x-lg" viewBox="0 0 16 16">
+                                <path
+                                    d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z" />
+                            </svg>
+                            Sair
                         </a>
                     </li>
                 </ul>
             </aside>
 
             <!-- CONTEÚDO PRINCIPAL -->
-            <main class="col-md-10 px-4 py-4">
-
-                <!-- TOPO -->
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4 class="fw-bold">Visualização Animais</h4>
-                    <span class="text-muted">(nome veterinário)</span>
-                </div>
-
+            <main class="col-md-10 px-4 py-0">
+                
                 <!-- FILTROS -->
                 <div class="card mb-4 border-0">
                     <div class="card-body">
-                        <!-- FILTROS -->
-                        @if ($pets->isEmpty())
-                            <div class="alert alert-info d-flex flex-column align-items-center py-4 mt-3">
-                                <p class="mb-3">Pet não encontrado.</p>
-                                <div class="d-flex gap-2">
-                                    <a href="{{ route('dashboard.index') }}" class="btn btn-secondary">
-                                        Voltar para lista de pets
-                                    </a>
+                        <div class="d-flex justify-content-between align-items-center">
+                            {{-- Form de busca --}}
+                            <form method="GET" action="" class="d-flex gap-2">
+                                <div class="input-group">
+                                    <input type="text" name="search" class="form-control"
+                                        placeholder="Buscar por pet ou tutor" value="{{ request('search') }}">
+                                    <button type="submit"
+                                        class="btn btn-search-custom d-flex align-items-center justify-content-center px-3">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                                        </svg>
+                                    </button>
                                 </div>
-                            </div>
-                        @else
-                            {{-- Linha do filtro + botão cadastrar --}}
-                            <div class="d-flex justify-content-between align-items-center">
-
-                                {{-- Form de busca --}}
-                                <form method="GET" action="" class="d-flex gap-2">
-                                    <div class="input-group">
-                                        <input type="text" name="search" class="form-control"
-                                            placeholder="Buscar por pet ou tutor" value="{{ request('search') }}">
-                                        <button type="submit"
-                                            class="btn btn-search-custom d-flex align-items-center justify-content-center px-3">
-                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                                            </svg>
-                                        </button>
-                                    </div>
-
-                                    <a href="{{ route('dashboard.index') }}" class="btn btn-outline-secondary">
-                                        Limpar
-                                    </a>
-                                </form>
-                            </div>
-                        @endif
+                                <a href="{{ route('dashboard.index') }}" class="btn btn-outline-secondary">
+                                    Limpar
+                                </a>
+                            </form>
+                        </div>
                     </div>
                 </div>
 
@@ -125,8 +137,8 @@
                                                     <!-- Ver carteira -->
                                                     <a href="{{ route('carteira.show', $pet->id) }}" class="btn btn-sm">
                                                         <svg xmlns="http://www.w3.org/2000/svg" width="20"
-                                                            height="20" fill="currentColor" class="bi bi-card-checklist"
-                                                            viewBox="0 0 16 16">
+                                                            height="20" fill="currentColor"
+                                                            class="bi bi-card-checklist" viewBox="0 0 16 16">
                                                             <path
                                                                 d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2z" />
                                                             <path
@@ -138,7 +150,7 @@
                                         @empty
                                             <tr>
                                                 <td colspan="4" class="text-center text-muted">
-                                                    Nenhum pet cadastrado
+                                                    Nenhum pet encontrado.
                                                 </td>
                                             </tr>
                                         @endforelse
@@ -160,8 +172,11 @@
 
                                 <!-- Vacinas vencidas -->
                                 <div class="d-flex justify-content-between align-items-center mb-2">
-                                    <span class="text-danger fw-bold">
-                                        🔴 {{ $vacinasVencidasCount }} vacinas vencidas
+                                    <span class="text-danger fw-bold d-flex align-items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-circle-fill" viewBox="0 0 16 16">
+                                            <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 4a.905.905 0 0 0-.9.995l.35 3.507a.552.552 0 0 0 1.1 0l.35-3.507A.905.905 0 0 0 8 4zm.002 6a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/>
+                                        </svg>
+                                        {{ $vacinasVencidasCount }} vacinas vencidas
                                     </span>
                                     <button class="btn btn-sm btn-outline-danger" data-bs-toggle="modal"
                                         data-bs-target="#modalVencidas">
@@ -171,8 +186,11 @@
 
                                 <!-- Vacinas próximas -->
                                 <div class="d-flex justify-content-between align-items-center">
-                                    <span class="text-warning fw-bold">
-                                        🟠 {{ $vacinasProximasCount }} vacinas próximas
+                                    <span class="text-warning fw-bold d-flex align-items-center gap-2">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                                            <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0l-5.708 9.7a1.13 1.13 0 0 0 .98 1.734h11.396a1.13 1.13 0 0 0 .98-1.734l-5.708-9.7zM8 5c.535 0 .954.462.894 1.031l-.708 5.957a.375.375 0 0 1-.75 0l-.708-5.956A.375.375 0 0 1 8 5zm.002 6a.5.5 0 1 1 0 1 .5.5 0 0 1 0-1z"/>
+                                        </svg>
+                                        {{ $vacinasProximasCount }} vacinas próximas
                                     </span>
                                     <button class="btn btn-sm btn-outline-warning" data-bs-toggle="modal"
                                         data-bs-target="#modalProximas">
@@ -195,22 +213,22 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <ul class="list-group">
+                                    <ul class="list-group list-group-flush">
                                         @foreach ($vacinasVencidas as $v)
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <div>
-                                                    <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
-                                                        class="fw-bold text-decoration-none text-danger">
-                                                        {{ $v->pet->nome }}
-                                                    </a>
-                                                    —
-                                                    {{ $v->vacina->nome }}
-                                                    —
-                                                    vencida em
-                                                    {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}
+                                            <li class="list-group-item">
+                                                <div class="d-flex justify-content-between align-items-start gap-3">
+                                                    <div class="flex-grow-1">
+                                                        <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
+                                                            class="fw-bold text-decoration-none text-danger d-block mb-2">
+                                                            {{ $v->pet->nome }}
+                                                        </a>
+                                                        <div class="text-muted small">
+                                                            <span class="d-block mb-1">{{ $v->vacina->nome }}</span>
+                                                            <span class="d-block">Vencida em {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="badge bg-danger">Vencida</span>
                                                 </div>
-
-                                                <span class="badge bg-danger">Vencida</span>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -231,21 +249,22 @@
                                 </div>
 
                                 <div class="modal-body">
-                                    <ul class="list-group">
+                                    <ul class="list-group list-group-flush">
                                         @foreach ($vacinasProximas as $v)
-                                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                                <div>
-                                                    <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
-                                                        class="fw-bold text-decoration-none text-warning">
-                                                        {{ $v->pet->nome }}
-                                                    </a>
-                                                    —
-                                                    {{ $v->vacina->nome }}
-                                                    —
-                                                    vence em {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}
+                                            <li class="list-group-item">
+                                                <div class="d-flex justify-content-between align-items-start gap-3">
+                                                    <div class="flex-grow-1">
+                                                        <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
+                                                            class="fw-bold text-decoration-none text-warning d-block mb-2">
+                                                            {{ $v->pet->nome }}
+                                                        </a>
+                                                        <div class="text-muted small">
+                                                            <span class="d-block mb-1">{{ $v->vacina->nome }}</span>
+                                                            <span class="d-block">Vence em {{ \Carbon\Carbon::parse($v->proxima_dose)->format('d/m/Y') }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <span class="badge bg-warning text-dark">Próxima</span>
                                                 </div>
-
-                                                <span class="badge bg-warning text-dark">Próxima</span>
                                             </li>
                                         @endforeach
                                     </ul>
@@ -254,27 +273,8 @@
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
             </main>
-            <style>
-                .sidebar {
-                    border-right: 1px solid #eee;
-                }
-
-                .sidebar .nav-link {
-                    color: #555;
-                    border-radius: 8px;
-                }
-
-                .sidebar .nav-link.active,
-                .sidebar .nav-link:hover {
-                    background-color: #e9e3ff;
-                    color: #5a3fd9;
-                }
-            </style>
         </div>
     </div>
 @endsection
