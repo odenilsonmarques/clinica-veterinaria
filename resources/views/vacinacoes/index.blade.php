@@ -3,25 +3,32 @@
 
 @section('content')
 
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col text-center">
-                @if (session('success'))
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            Swal.fire({
-                                icon: "success",
-                                title: "Sucesso!",
-                                text: "{{ session('success') }}",
-                                confirmButtonText: "Ok"
-                            });
-                        });
-                    </script>
-                @endif
-            </div>
-        </div>
 
-        <div class="row mt-5">
+            @include('partials.sidebar')
+
+            <!-- CONTEÚDO PRINCIPAL -->
+            <main class="col-md-10 px-4 py-0">
+
+                <div class="row">
+                    <div class="col text-center">
+                        @if (session('success'))
+                            <script>
+                                document.addEventListener("DOMContentLoaded", function() {
+                                    Swal.fire({
+                                        icon: "success",
+                                        title: "Sucesso!",
+                                        text: "{{ session('success') }}",
+                                        confirmButtonText: "Ok"
+                                    });
+                                });
+                            </script>
+                        @endif
+                    </div>
+                </div>
+
+                <div class="row mt-5">
             @if ($vacinacoes->isEmpty())
                 <div class="alert alert-info d-flex flex-column align-items-center py-4 mt-3">
                     <p class="mb-3">Vacinação não encontrada.</p>
@@ -115,6 +122,9 @@
             <div class="d-flex justify-content-end pagination pagination-sm">
                 {{ $vacinacoes->links('pagination::bootstrap-4') }}
             </div>
+        </div>
+
+            </main>
         </div>
     </div>
 @endsection
