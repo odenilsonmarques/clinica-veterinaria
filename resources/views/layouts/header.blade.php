@@ -1,7 +1,7 @@
 <header>
     <nav class="navbar fixed-top navbar-expand-sm navbar-dark p-2" style="background-color: #b0a7e8;">
         <div class="container-fluid">
-            <a class="navbar-brand d-flex flex-column align-items-start" href="/">
+            <a class="navbar-brand d-flex flex-column align-items-start" href="{{ route('dashboard.index') }}">
                 <span class="fw-bold fs-4">HelpPet</span>
             </a>
 
