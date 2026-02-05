@@ -62,6 +62,9 @@
                             <a href="{{ route('vacinas.create', $pet->id) }}" class="btn" style="background-color: #8F7FEE; color: white; border: none; font-weight: 600; padding: 10px 25px; border-radius: 8px;">
                                 <i class="bi bi-plus-circle"></i> Registrar Nova Vacina
                             </a>
+                            <a href="{{ route('carteira.view-pdf', $pet->id) }}" class="btn" style="background-color: #dc3545; color: white; border: none; font-weight: 600; padding: 10px 25px; border-radius: 8px; margin-left: 8px;" target="_blank">
+                                <i class="bi bi-file-earmark-pdf"></i> Visualizar / Baixar PDF
+                            </a>
                         </div>
                     </div>
 

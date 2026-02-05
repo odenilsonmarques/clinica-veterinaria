@@ -60,3 +60,5 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 
 //Rota para carteira de vacinação
 Route::get('/carteira/{pet}', [CarteiraController::class, 'show'])->name('carteira.show');
+Route::get('/carteira/{pet}/visualizar', [CarteiraController::class, 'viewPdf'])->name('carteira.view-pdf');
+Route::get('/carteira/{pet}/pdf', [CarteiraController::class, 'pdf'])->name('carteira.pdf');
