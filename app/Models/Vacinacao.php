@@ -52,8 +52,9 @@ class Vacinacao extends Model
     // Scope para Vacinas vencidas
     public function scopeVacinasVencidas($query)
     {
-        return $query->whereNotNull('proxima_dose')
-            ->whereDate('proxima_dose', '<', Carbon::today());
+
+        return $query->whereNotNull('proxima_dose') // WhereNotNull Evita pegar registros que ainda não têm próxima dose definida.
+            ->whereDate('proxima_dose', '<', Carbon::today()); // whereDate é usado para comparar apenas a parte da data, ignorando o horário. Carbon para comparar com o dia atual
     }
 
     // Scope para Vacinas próximas do vencimento (30 dias)

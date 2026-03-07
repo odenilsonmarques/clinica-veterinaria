@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Lista de vacinas')
+@section('title', 'Vacinas')
 
 @section('content')
     <div class="container-fluid">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-5">
+                <div class="row mt-3">
             @if ($vacinas->isEmpty())
                 <div class="alert alert-info d-flex flex-column align-items-center py-4 mt-3">
                     <p class="mb-3">Vacina não encontrada.</p>
@@ -64,7 +64,7 @@
 
                     {{-- Botão Cadastrar --}}
                     <a href="{{ route('vacinas.create') }}" class="btn btn-sm btn-custom-add">
-                        Cadastrar Vacina
+                        Nova Vacina
                     </a>
 
                 </div>

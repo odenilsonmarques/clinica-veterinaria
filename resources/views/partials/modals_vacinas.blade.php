@@ -18,7 +18,7 @@
                                 <div class="flex-grow-1">
                                     <a href="{{ route('carteira.show', $v->pet->id) }}" target="_blank"
                                         class="fw-bold text-decoration-none text-danger d-block mb-2">
-                                        {{ $v->pet->nome }}
+                                       {{ $v->pet->nome }}
                                     </a>
                                     <div class="text-muted small">
                                         <span class="d-block mb-1">{{ $v->vacina->nome }}</span>
