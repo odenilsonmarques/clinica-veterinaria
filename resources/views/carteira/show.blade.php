@@ -1,8 +1,15 @@
 @extends('layouts.template')
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
+        <div class="row">
 
+            @include('partials.sidebar')
+
+            <main class="col-md-10 px-4 py-0">
+                <div class="container">
+
+        
         <div class="card mb-4" style="border: none; background: linear-gradient(135deg, #b0a7e8 0%, #8F7FEE 100%);">
             <div class="card-body p-4">
                 <div class="row align-items-center">
@@ -59,8 +66,8 @@
                         </div>
 
                         <div class="mt-3">
-                            <a href="{{ route('vacinas.create', $pet->id) }}" class="btn" style="background-color: #8F7FEE; color: white; border: none; font-weight: 600; padding: 10px 25px; border-radius: 8px;">
-                                <i class="bi bi-plus-circle"></i> Registrar Nova Vacina
+                            <a href="{{ route('vacinacoes.create', $pet->id) }}" class="btn" style="background-color: #8F7FEE; color: white; border: none; font-weight: 600; padding: 10px 25px; border-radius: 8px;">
+                                <i class="bi bi-plus-circle"></i> Registrar Aplicação
                             </a>
                             <a href="{{ route('carteira.view-pdf', $pet->id) }}" class="btn" style="background-color: #dc3545; color: white; border: none; font-weight: 600; padding: 10px 25px; border-radius: 8px; margin-left: 8px;" target="_blank">
                                 <i class="bi bi-file-earmark-pdf"></i> Visualizar / Baixar PDF
@@ -160,13 +167,16 @@
                     <div style="text-align: center; padding: 40px 20px; background-color: #f9fafb; border-radius: 8px;">
                         <i class="bi bi-inbox" style="font-size: 48px; color: #ccc;"></i>
                         <p class="text-muted mt-3 mb-0">Nenhuma vacinação registrada ainda.</p>
-                        <a href="{{ route('vacinas.create', $pet->id) }}" class="btn mt-3" style="background-color: #8F7FEE; color: white;">
-                            Registrar Primeira Vacina
-                        </a>
+                        {{-- <a href="{{ route('vacinacoes.create', $pet->id) }}" class="btn mt-3" style="background-color: #8F7FEE; color: white;">
+                            Registrar Primeira Aplicação
+                        </a> --}}
                     </div>
                 @endif
             </div>
         </div>
 
+                </div>
+            </main>
+        </div>
     </div>
 @endsection

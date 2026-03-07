@@ -60,7 +60,7 @@ class VacinacaoController extends Controller
         Vacinacao::create($request->validated());
 
         // Redireciona para a lista de vacinações com uma mensagem de sucesso
-        return redirect()->route('vacinacoes.index')->with('success', 'Vacinação registrada com sucesso!');
+        return redirect()->route('vacinacoes.index')->with('success', 'Aplicação registrada com sucesso!');
     }
 
     /**

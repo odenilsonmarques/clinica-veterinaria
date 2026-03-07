@@ -1,6 +1,6 @@
 @extends('layouts.template')
 
-@section('title', 'Lista de Pets')
+@section('title', 'Pets')
 
 @section('content')
     <div class="container-fluid">
@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-5">
+                <div class="row mt-3">
             @if ($pets->isEmpty())
                 <div class="alert alert-info d-flex flex-column align-items-center py-4 mt-3">
                     <p class="mb-3">Pet não encontrado.</p>
@@ -64,7 +64,7 @@
 
                     {{-- Botão Cadastrar --}}
                     <a href="{{ route('pets.create') }}" class="btn btn-sm btn-custom-add">
-                        Cadastrar Pet
+                        Novo Pet
                     </a>
 
                 </div>

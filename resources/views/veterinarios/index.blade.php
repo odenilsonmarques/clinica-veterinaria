@@ -1,9 +1,9 @@
 @extends('layouts.template')
 
-@section('title', 'Lista de Veterinários')
+@section('title', 'Veterinários')
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid border">
         <div class="row">
 
             @include('partials.sidebar')
@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-5">
+                <div class="row mt-3">
                     @if ($veterinarios->isEmpty())
                         <div class="alert alert-info d-flex flex-column align-items-center py-4 mt-3">
                             <p class="mb-3">Veterinário não encontrado.</p>
@@ -64,7 +64,7 @@
 
                             {{-- Botão Cadastrar --}}
                             <a href="{{ route('veterinarios.create') }}" class="btn btn-sm btn-custom-add">
-                                Cadastrar Veterinário
+                                Novo Veterinário
                             </a>
 
                         </div>

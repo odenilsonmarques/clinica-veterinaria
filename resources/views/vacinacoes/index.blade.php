@@ -1,5 +1,5 @@
 @extends('layouts.template')
-@section('title', 'Lista de vacinações')
+@section('title', 'Aplicações de Vacinas')
 
 @section('content')
 
@@ -28,7 +28,7 @@
                     </div>
                 </div>
 
-                <div class="row mt-5">
+                <div class="row mt-3">
             @if ($vacinacoes->isEmpty())
                 <div class="alert alert-info d-flex flex-column align-items-center py-4 mt-3">
                     <p class="mb-3">Vacinação não encontrada.</p>
@@ -64,7 +64,7 @@
 
                     {{-- Botão Cadastrar --}}
                     <a href="{{ route('vacinacoes.create') }}" class="btn btn-sm btn-custom-add">
-                        Cadastrar Vacinação
+                        Nova Aplicação
                     </a>
 
                 </div>
@@ -74,7 +74,7 @@
 
         <div class="table-responsive mt-1">
             <table class="table   table-hover caption-top">
-                <caption class="">Vacinacoes</caption>
+                <caption class="">Aplicações</caption>
                 <thead class="thead-custom">
                     <tr>
                         <th>Nome do pet</th>

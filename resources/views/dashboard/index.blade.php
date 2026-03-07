@@ -74,7 +74,7 @@
                                         @empty
                                             <tr>
                                                 <td colspan="4" class="text-center text-muted">
-                                                    Nenhum pet encontrado.
+                                                    Nenhum pet / tutor encontrado.
                                                 </td>
                                             </tr>
                                         @endforelse
