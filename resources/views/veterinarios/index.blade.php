@@ -3,7 +3,7 @@
 @section('title', 'Veterinários')
 
 @section('content')
-    <div class="container-fluid border">
+    <div class="container-fluid">
         <div class="row">
 
             @include('partials.sidebar')
@@ -29,18 +29,8 @@
                 </div>
 
                 <div class="row mt-3">
-                    @if ($veterinarios->isEmpty())
-                        <div class="alert alert-info d-flex flex-column align-items-center py-4 mt-3">
-                            <p class="mb-3">Veterinário não encontrado.</p>
-                            <div class="d-flex gap-2">
-                                <a href="{{ route('veterinarios.index') }}" class="btn btn-secondary">
-                                    Voltar para lista de veterinários
-                                </a>
-                            </div>
-                        </div>
-                    @else
-                        {{-- Linha do filtro + botão cadastrar --}}
-                        <div class="d-flex justify-content-between align-items-center mb-3">
+                    {{-- Linha do filtro + botão cadastrar --}}
+                    <div class="d-flex justify-content-between align-items-center mb-3">
 
                             {{-- Form de busca --}}
                             <form method="GET" action="" class="d-flex gap-2">
@@ -68,7 +58,6 @@
                             </a>
 
                         </div>
-                    @endif
                 </div>
 
 
@@ -85,7 +74,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($veterinarios as $veterinario)
+                            @forelse ($veterinarios as $veterinario)
                                 <tr>
                                     <td>{{ $veterinario->nome }}</td>
                                     <td>{{ $veterinario->crmv }}</td>
@@ -115,7 +104,13 @@
                                         </form>
                                     </td>
                                 </tr>
-                            @endforeach
+                            @empty
+                                <tr>
+                                    <td colspan="5" class="text-center text-muted">
+                                        Nenhum veterinário encontrado.
+                                    </td>
+                                </tr>
+                            @endforelse
                         </tbody>
                     </table>
                     {{-- paginação --}}
